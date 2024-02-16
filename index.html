@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background-color: aliceblue;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h3>Vue3Project</h3>
+    <div id="app">
+        <div v-show="showNotes">Showing Title</div>
+        <div v-show="!showNotes">Hiding Title</div>
+        <div v-if="showNotes">
+            <h3>{{title}} : {{age}}</h3>
+        </div>
+        <button @click="age++">I n c r e a s e A g e</button>
+        <br> <br>
+        <button @click="age--">D e c r e a s e A g e</button>
+        <br> <br>
+        <div @click="changeTitle('Bring')" >Change Title Click Here</div>
+        <div @click="showHideNotes">
+            <Button v-if="showNotes" >Hide</Button>
+            <Button v-else >Show</Button> <br> <br>
+        </div>
+        <br><br>
+        <!-- Mouse Event -->
+        <div class="box" @mouseover="handleEvent1($event,10)">Mouse Over (Enter)</div>
+        <div class="box" @mouseleave="handleEvent1">Mouse Leave</div>
+        <div class="box" @dblclick="handleEvent1">Double Click</div>
+        <div class="box" @mousemove="handleMouseMove">X position is {{x}} - Y position is {{y}}</div>
+        <br> <br>
+        <!-- Vfor -->
+        <div>
+            <ul>
+                <li v-for="book in books">
+                    <h3>Title  : {{book.title}}</h3>
+                    <h3>Author : {{book.author}}</h3>
+                    <h3>Age    : {{book.age}}</h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
