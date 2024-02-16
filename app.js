@@ -33,8 +33,6 @@ const app = Vue.createApp({
                     age: 70,
                     image: 'assets/vue.png',
                     fiveStar:true
-
-
                 }
             ],
             url:'https://react.dev/learn/start-a-new-react-project'
