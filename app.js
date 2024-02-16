@@ -13,21 +13,31 @@ const app = Vue.createApp({
             y : 0,
             books : [
                 {
-                    title: "To Kill a Mockingbird",
+                    title: "To Success",
                     author: "Harper Lee",
-                    age: 60
+                    age: 60,
+                    image: 'assets/jsB.png',
+                    fiveStar:true
                 },
                 {
                     title: "1984",
                     author: "George Orwell",
-                    age: 72
+                    age: 72,
+                    image: 'assets/jsC.jpg',
+                    fiveStar:false
+
                 },
                 {
                     title: "The Catcher in the Rye",
                     author: "J.D. Salinger",
-                    age: 70
+                    age: 70,
+                    image: 'assets/vue.png',
+                    fiveStar:true
+
+
                 }
-            ]
+            ],
+            url:'https://react.dev/learn/start-a-new-react-project'
         }
     },
     methods:{
@@ -47,6 +57,15 @@ const app = Vue.createApp({
         handleMouseMove(e){
             this.x = e.offsetX
             this.y = e.offsetY
+        },
+        changeBoolean(item){
+            console.log('item',item.fiveStar)
+                item.fiveStar = !item.fiveStar
+        }
+    },
+    computed:{
+        filteredBooks(){
+            return this.books.filter((book)=>book.fiveStar)
         }
     }
 })

@@ -12,11 +12,16 @@
             margin: 20px;
             display: inline-block;
         }
+        .fav{
+            background-color:#affff3;
+            color: rgb(183, 15, 250);
+        }
     </style>
 </head>
 <body>
     <h3>Vue3Project</h3>
     <div id="app">
+        <!-- <p>{{filteredBooks}}</p> -->
         <div v-show="showNotes">Showing Title</div>
         <div v-show="!showNotes">Hiding Title</div>
         <div v-if="showNotes">
@@ -41,13 +46,19 @@
         <!-- Vfor -->
         <div>
             <ul>
-                <li v-for="book in books">
+                <li v-for="book in filteredBooks" :class="{fav:book.fiveStar}" @click="changeBoolean(book)">
+                    <img :src="book.image" :alt="book.title" width="500px">
                     <h3>Title  : {{book.title}}</h3>
                     <h3>Author : {{book.author}}</h3>
                     <h3>Age    : {{book.age}}</h3>
                 </li>
             </ul>
         </div>
+        <br> <br>
+        <!-- Attribute Binding -->
+        <a :href="url">React</a>
+        <!-- Dynamic Classes -->
+
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./app.js"></script>
